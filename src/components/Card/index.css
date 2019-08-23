@@ -1,0 +1,122 @@
+
+.cardWidth .card{
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+    border: none;
+}
+.cardsPositioning{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.cardWidth{
+    width: 25%;
+    padding: 15px;
+
+}
+.cardMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 20px
+}
+
+.cardMain h3{
+    font-weight: 600
+}
+
+.cardMain strong{
+    font-weight: bold;
+    color: #707070;
+    font-size: 14px;
+}
+
+.timeCardsMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px
+}
+
+.timeCardsMain h3{
+    color: #f24734;
+    font-weight: 600;
+    margin: 0;
+}
+
+.timeCardsMain p{
+    color: #707070;
+    font-size: 14px;
+    margin: 5px 0px;
+}
+
+.ClickCardsMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px
+}
+
+.ClickCardsMain h3{
+    color: #2f8ee0;
+    font-weight: 700;
+    font-size: 27px;
+}
+.ClickCardsMain p{
+    color: #2f8ee0;
+    font-weight: 500;
+    margin: 0;
+    font-size: 14px;
+
+}
+
+.imageOut{
+    height: 50px;
+    width: 50px;
+    margin: 0px 0px 10px 0;
+}
+
+.imageMain{
+    height: 100%;
+    width: 100%
+}
+
+.chartCardMain{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    overflow: hidden;
+}
+.chartTitle p{
+    padding: 25px 25px 0 25px;
+    font-size: 14px;
+    text-align: left
+}
+
+.alignInRow{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.dataOut{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.dataOut h3{
+    font-weight: 600;
+    font-size: 20px;
+}
+.dataOut p{
+    font-size: 14px;
+}

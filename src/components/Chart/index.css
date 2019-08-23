@@ -1,0 +1,78 @@
+
+.mainChart svg .recharts-cartesian-grid-horizontal line{
+    stroke-dasharray: 0.05, 0.05 !important;
+}
+
+.mainChart svg .recharts-cartesian-grid-vertical line {
+    stroke: none !important;
+}
+
+.mainChart svg line.recharts-cartesian-axis-line{
+    stroke: none !important;
+
+}
+.mainChart svg line.recharts-cartesian-axis-tick-line {
+    stroke: none !important;
+}
+
+.mainChart svg g text.recharts-text.recharts-cartesian-axis-tick-value{
+    fill: #98a6ad;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-family: sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+}
+
+.mainChart ul.recharts-default-legend {
+    display: none;
+}
+
+.tooTipMain{
+    height: 200px;
+    width: 130px;
+}
+
+.headerTooTip{
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+    background-color: black;
+    height: 30px;
+    padding-top: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+.headerTooTip p{
+    color: #fff;
+    font-weight: 600;
+    font-size: 14px;
+}
+.tootTipText{
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+    background-color: #fff;
+    height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.tootTipText p{
+    font-weight: 500;
+    font-size: 12px;
+    color: #0a1832 !important;
+    margin: 0;
+}
+
+.mainChart{
+    margin-left: -40px;
+    width: 105%;
+    height: 300px;
+
+  }
+  
+.container-chart {
+    width: 100%;
+    height: 100%;
+  }
+

@@ -1,0 +1,133 @@
+.backgroundColorMain{
+    background: #f5f5f5;
+    height: 100%;
+}
+
+.containeNoMargin{
+    margin:0;
+    padding: 0
+}
+
+.dashBoardCon{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1300px;
+    height: 550px;
+}
+
+.secondContainer{
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1300px;
+}
+
+.textCon{
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.backgroundGradient{
+    background: radial-gradient(at 50% -20%, #1967a9, #0a1832) fixed;
+    padding-bottom: 45px;
+    -webkit-box-shadow: 1px 0 14px 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 0 14px 0 rgba(0, 0, 0, 0.5);
+    margin: 0;
+    position: relative;
+}
+.mainHeading{
+    margin: 0;
+    padding: 10px 0;
+    color: #fff;
+    font-weight: 800;
+}
+
+.titleText{
+    margin:20px 0;
+}
+.titleText h4{
+    font-size: 28px;
+    margin: 0;
+    color: #fff;
+    font-weight: 700;
+}
+
+.chartMain{
+    background-color: transparent;
+}
+
+.wrapper{
+    margin-top: -70px;
+}
+
+@media(max-width: 769px){ 
+    .mainHeading{
+       font-size: 25px
+    }
+    .titleText h4{
+        font-size: 18px;
+    }
+}
+
+
+.buttonOut{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    margin-top: 15px;
+  }
+
+  .buttonWhite{
+    border-radius: 3px;
+    cursor: pointer;
+    color: #f8f9fa;
+    border: 1px solid;
+    background-color: transparent;
+    border-color: #f8f9fa;
+    font-weight: 400;
+    text-align: center;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0 10px 0 0;
+  }
+  .buttonWhite:hover{
+    background-color: #f8f9fa;
+    color: black;
+  }
+
+  .buttonBlue{
+    border-radius: 3px;
+    cursor: pointer;
+    color: #17a2b8;
+    border: 1px solid;
+    background-color: transparent;
+    border-color: #17a2b8;
+    font-weight: 400;
+    text-align: center;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .buttonBlue:hover{
+    background-color: #17a2b8;
+    color: #fff;
+  }
+
+  .bootomTextOut{
+      padding: 20px 0 0 0;
+      background-color: #f9f9f9;
+      width: 100%
+  }
+  .bootomTextOut p{
+    font-size: 14px
+  }

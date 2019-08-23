@@ -1,0 +1,145 @@
+
+
+.backGroundImage{
+    background: url('../../Images/tic-tac-toe.png');
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
+
+.wrapper-page {
+    margin: 5.5% auto;
+    max-width: 460px;
+    position: relative;
+
+}
+.card-body {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.25rem;
+}
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    border-radius: .25rem;
+    border: none;
+    padding: 20px 0 0 0;
+    box-shadow: 1px 4px 45px 0 rgba(0, 0, 0, 0.1);
+}
+
+.headingMain{
+    text-align: center;
+    font-weight: bold
+}
+.container{
+    padding: 25px 15px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container h6{
+    color: #707070;
+    font-weight: 600;
+    margin-top: 3px;
+    font-size: 18px;
+}
+
+.container p{
+    color: #707070;
+    font-size: 14px;
+}
+.form-containerMain{
+    width: 100%;
+    margin-top: 10px
+}
+
+.form-group{
+    margin-bottom: 16px;
+    width: 100%
+}
+.form-group label{
+    font-weight: 500;
+    margin-bottom: .5rem;
+    font-size: 14px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(2.25rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.custom-control {
+    padding: 0 !important
+}
+
+input[type=checkbox], input[type=radio] {
+    box-sizing: border-box;
+    padding: 0;
+}
+
+.custom-control-input {
+    background-color: red;
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.custom-control-label {
+    position: relative;
+    margin-bottom: 0;
+    font-size: 15px;
+    font-weight: 500
+}
+.alignEnd{
+    display: flex;
+    width: 100%;
+    justify-content: flex-end
+}
+.btn-primary {
+    background-color: #2f8ee0;
+    border: 1px solid #2f8ee0;
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: hidden;
+    min-width: 110px;
+    font-weight: 600;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+.alignRow{
+    display: flex;
+    flex-direction: row;
+    width: 130px;
+}
+.alignRow p{
+    margin: -3px 0 0 10px;
+    color: black ;
+}
+.btnOut{
+    margin-top: 20px;
+}
+
+.bottomtext{
+    margin-top: 30px;
+    width: 100%;
+    text-align: center
+}
+.bottomtext p{
+    font-size: 14px;
+}

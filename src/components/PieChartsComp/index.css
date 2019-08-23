@@ -1,0 +1,22 @@
+.recharts-wrapper{
+    width: 200px;
+}
+
+.question {
+    width: 100%;
+    height: 300px;
+
+  }
+  
+  .question-container {
+    width: 100%;
+    height: 100%;
+    padding-left: 30px
+  }
+
+  @media(max-width: 769px){ 
+    .question-container {
+      padding-left: 10px
+    }
+
+  }

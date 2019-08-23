@@ -1,0 +1,19 @@
+.containeNoMargin{
+    margin:0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+.headingText{
+    font-weight: 200;
+    margin-bottom: 35px;
+    font-size: 2.5rem;
+    font-family: inherit;
+    margin: 20px 0;
+}
+
+@media(max-width: 769px){ 
+    .headingText{
+       font-size: 18px
+    }
+}
