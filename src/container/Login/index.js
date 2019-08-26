@@ -1,19 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container, Row, Col } from 'react-bootstrap';
+import {  Row, Col } from 'react-bootstrap';
 import microValidator from 'micro-validator'
 import is from 'is_js'
 import './index.css'
 import { loginApi } from '../../redux/actions/index';
 
 let validationSchema = {
-    email: {
+    username: {
         required: {
-            errorMsg: 'Email is required'
+            errorMsg: 'username is required'
         },
-        email: {
-            errorMsg: 'Email is not valid'
-        }
     },
     password: {
         required: {
@@ -28,7 +25,7 @@ class Login extends React.Component {
         this.state = {
             checked: true,
             userData: {
-                email: '',
+                username: '',
                 password: ''
             },
             errors: {},
@@ -50,7 +47,7 @@ class Login extends React.Component {
             return
         }
         let data = {
-            email: userData.email,
+            username: userData.username,
             password: userData.password,
         }
         this.setState({ loading: true })
@@ -65,6 +62,7 @@ class Login extends React.Component {
         })
     }
     render() {
+        let { errors } = this.state
         return (
             <div className="backGroundImage">
                 <div className="wrapper-page">
@@ -81,11 +79,13 @@ class Login extends React.Component {
                                 <form className="form-containerMain" onSubmit={(e) => this.handleSubmit(e)}>
                                     <div className="form-group">
                                         <label>Username</label>
-                                        <input type="text" onChange={this.handleChange.bind(this, 'email')} className="form-control" id="username" placeholder="Enter username" />
+                                        <input type="text" onChange={this.handleChange.bind(this, 'username')} className="form-control" id="username" placeholder="Enter Username" />
+                                        <span className="errorMsg">{errors.email && errors.email[0]}</span>
                                     </div>
                                     <div className="form-group">
                                         <label>Password</label>
                                         <input type="password" onChange={this.handleChange.bind(this, 'password')} className="form-control" id="Password" placeholder="Enter Password" />
+                                        <span className="errorMsg">{errors.password && errors.password[0]}</span>
                                     </div>
                                     <Row className="btnOut">
                                         <Col md={6} xs={6} sm={6} xl={6} >

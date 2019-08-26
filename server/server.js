@@ -30,17 +30,13 @@ app.get('/test', (req, res, next)=>{
 
 app.post('/login',
 	function (req, res) {
-		Login.findOne({ "email": req.body.email.toLowerCase(), "password": req.body.password }, function (err, user_data) {
+		Login.findOne({ "username": req.body.username.toLowerCase(), "password": req.body.password }, function (err, user_data) {
 			if (err || !user_data) {
 				return res.status(401).json({
 					status: 401,
-					message: "Invalid email and password.",
+					message: "Invalid username and password.",
 				});
 			} else {
-				const payload = {
-					email: user_data.email
-				};
-
 				res.status(200).json({
 					message: "You have succesfully logged in.",
 					data: user_data,
