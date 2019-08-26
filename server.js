@@ -88,7 +88,7 @@ app.get('/getData',
 
 	});
 
-	app.get("/", function (req, res) {
+	app.get("/*", function (req, res) {
 		res.sendFile(path.resolve('./build/index.html'));
   });
   
