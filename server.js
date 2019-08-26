@@ -10,10 +10,10 @@ mongoose.connect('mongodb://localhost:27017/appless', { useNewUrlParser: true })
 mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-var config = require('./config');
+var config = require('./server/config');
 app.set('superSecret', config.secret);
 
-app.use(express.static(path.join(__dirname, '../build')))
+app.use(express.static(path.join(__dirname, './build')))
 // app.use(express.static(path.join(__dirname, '../public')))
 
 
@@ -22,15 +22,15 @@ app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next();
 });
-var Login = require('./Schema/login');
+var Login = require('./server/Schema/login');
 
-var DataArray = require('./Schema/DataArray')
+var DataArray = require('./server/Schema/DataArray')
 
-const graphArray = require('./constants/graphArray')
-const cardChartArray = require('./constants/cardChartArray')
-const clickCardsArray = require('./constants/clickCardsArray')
-const timeCardsArray = require('./constants/timeCardsArray')
-const titleCardsArray = require('./constants/titleCardsArray')
+const graphArray = require('./server/constants/graphArray')
+const cardChartArray = require('./server/constants/cardChartArray')
+const clickCardsArray = require('./server/constants/clickCardsArray')
+const timeCardsArray = require('./server/constants/timeCardsArray')
+const titleCardsArray = require('./server/constants/titleCardsArray')
 
 
 
@@ -88,11 +88,9 @@ app.get('/getData',
 	});
 
 	app.get("/", function (req, res) {
-		res.sendFile(path.resolve('../build/index.html'));
-	});
-	app.get("/dashboard", function (req, res) {
-		res.sendFile(path.resolve('/build/index.html'));
-	});
+		res.sendFile(path.resolve('./build/index.html'));
+  });
+  
 server.listen(port, () => {
 	console.log(`app running on port ${port}`)
 });

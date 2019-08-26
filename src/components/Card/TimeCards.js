@@ -6,7 +6,7 @@ import './index.css'
 class TimeCards extends React.Component {
     render() {
         let dataArray = this.props && this.props.reducer && this.props.reducer.data && this.props.reducer.data.timeCardsArray || []
-        const API_URL = 'http://209.97.142.219:3061';        
+        const API_URL = 'http://209.97.142.219:3060';        
         return (
             <Row className="cardsPositioning">
                 {
