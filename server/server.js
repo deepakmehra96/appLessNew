@@ -4,7 +4,7 @@ var app = express();
 var server = require('http').Server(app)
 var path = require('path')
 var mongoose = require('mongoose');
-var port = process.env.PORT || 3060;
+var port = process.env.PORT || 3061;
 mongoose.set('useCreateIndex', true)
 mongoose.connect('mongodb://localhost:27017/appless', { useNewUrlParser: true })
 mongoose.Promise = global.Promise;
@@ -14,7 +14,7 @@ var config = require('./config');
 app.set('superSecret', config.secret);
 
 app.use(express.static(path.join(__dirname, '../build')))
-// app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 
 app.use(function (req, res, next) {
