@@ -1,10 +1,10 @@
 import axios from 'axios'
 import { SAVE_DATA } from '../types/index';
 
-export const API_URL = 'http://209.97.142.219:3061';
+export const API_URL = 'http://209.97.142.219:3060';
 
 
-// export const API_URL = 'http://localhost:3061';
+// export const API_URL = 'http://localhost:3060';
 
 export const loginApi = (data) => {
     let endPoint = 'login';

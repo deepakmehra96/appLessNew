@@ -2,12 +2,11 @@ import React from 'react'
 import { Row, Card, Col } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import './index.css'
+import { API_URL } from '../../redux/actions';
 
 class HeadingCards extends React.Component {
     render() {
         let dataArray = this.props && this.props.reducer && this.props.reducer.data && this.props.reducer.data.titleCardsArray || []
-
-        const API_URL = 'http://209.97.142.219:3060';
         return (
             <Row className="cardsPositioning">
                 {
