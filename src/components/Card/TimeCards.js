@@ -2,6 +2,7 @@ import React from 'react'
 import { Row, Card, Col } from 'react-bootstrap';
 import { connect } from 'react-redux'
 import './index.css'
+import { API_URL } from '../../redux/actions';
 
 class TimeCards extends React.Component {
     render() {
@@ -17,7 +18,7 @@ class TimeCards extends React.Component {
                                         <Card.Title><h3>{val.title}</h3></Card.Title>
                                         <Card.Subtitle><p>{val.number}</p></Card.Subtitle>
                                         <div className="imageOut">
-                                            <img className="imageMain" src={val.image} />
+                                            <img className="imageMain" src={API_URL + val.image} />
                                         </div>
                                     </Card.Body>
                                 </Card>

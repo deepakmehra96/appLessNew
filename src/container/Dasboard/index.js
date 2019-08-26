@@ -41,6 +41,7 @@ class Dashboard extends React.Component {
         
     render() {
         let { errors, loading } = this.state
+        console.log(this.props,"sdbfhjvjh")
         if (loading) return this.LoadingMessage();
         return (
             <div>

@@ -12,7 +12,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var config = require('./config');
 app.set('superSecret', config.secret);
+
 app.use(express.static(path.join(__dirname, '../build')))
+// app.use(express.static(path.join(__dirname, 'public')))
+
+
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -26,13 +30,11 @@ const graphArray = require('./constants/graphArray')
 const cardChartArray = require('./constants/cardChartArray')
 const clickCardsArray = require('./constants/clickCardsArray')
 const timeCardsArray = require('./constants/timeCardsArray')
+const titleCardsArray = require('./constants/titleCardsArray')
 
-// app.get('/test', (req, res, next) => {
-// 	res.send('data')
-// })
-	app.get("/", function(req, res) {
-		res.sendFile(path.resolve('./build/index.html'));
-	});
+app.get("/", function (req, res) {
+	res.sendFile(path.resolve('../build/index.html'));
+});
 
 
 app.post('/login',
@@ -57,8 +59,9 @@ app.post('/saveData',
 		var dataArray = new DataArray();
 		dataArray.graphArray = graphArray;
 		dataArray.cardChartArray = cardChartArray;
-		dataArray.timeCardsArray = timeCardsArray
-		dataArray.clickCardsArray = clickCardsArray
+		dataArray.timeCardsArray = timeCardsArray;
+		dataArray.clickCardsArray = clickCardsArray;
+		dataArray.titleCardsArray = titleCardsArray
 
 		dataArray.save(function (err, data) {
 			if (err)
@@ -74,16 +77,16 @@ app.post('/saveData',
 
 app.get('/getData',
 	async function (req, res) {
-		
+
 		const dataArray = await DataArray.find({})
 
-		console.log(dataArray,"dataArray")
+		console.log(dataArray, "dataArray")
 
 		res.json({
 			status: 200,
 			data: dataArray[0] || []
-		  })
-		
+		})
+
 	});
 
 

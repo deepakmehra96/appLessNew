@@ -1,10 +1,11 @@
-var mongoose     = require('mongoose');
-var Schema       = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
 
 var DataArray = new Schema({
     graphArray: Array,
     cardChartArray: Array,
     clickCardsArray: Array,
-    timeCardsArray: Array
+    timeCardsArray: Array,
+    titleCardsArray: Array
 });
 module.exports = mongoose.model('data', DataArray);
