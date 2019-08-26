@@ -16,5 +16,5 @@ app.get("/*", function(req, res) {
  res.sendFile("/build/index.html", { root: __dirname });
 });
 app.listen(3050, function() {
- console.log("Express Started on Port 7007");
+ console.log("Express Started on Port 3050");
 })
