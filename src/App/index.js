@@ -1,15 +1,13 @@
 import React from 'react';
 import { Provider } from 'react-redux'
-import {  Spinner } from 'react-bootstrap';
 import '../App.css';
 import store from '../redux/store';
 import Routes from '../views/Routes';
+import Spinner from '../components/Spinner';
 
 function LoadingMessage() {
   return (
-    <div className="splash-screen">
-      <Spinner animation="border" variant="primary" />
-    </div>
+  <Spinner/>
   );
 }
 
@@ -23,12 +21,19 @@ class App extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ loading: false })
-
     }, 2500);
   }
 
+  LoadingMessage = () => {
+        return (
+            <Spinner />
+        );
+    }
+   
+
   render() {
-    if (this.state.loading) return LoadingMessage();
+    let { loading } = this.state 
+    if (loading) return this.LoadingMessage();
     return (
       <Provider store={store}>
         <Routes />

@@ -8,12 +8,42 @@ import Heading from '../../components/Headings';
 import TimeCards from '../../components/Card/TimeCards';
 import ClickThroughCards from '../../components/Card/ClickThroughCards'
 import ChartCards from '../../components/Card/ChartCards';
+import Spinner from '../../components/Spinner';
+import { getData } from '../../redux/actions';
 
 class Dashboard extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            loading: false
+        };
+    }
+    componentDidMount(){
+        this.setState({ loading: true })
+        this.props.dispatch(getData()).then(res => {
+            if (res.status == 200) {
+                this.setState({ loading: false })
+            }else{
+                this.setState({ loading: false })
+                alert('Some Error Occurs')
+            }
+        }).catch((err) => {
+            this.setState({ loading: false })
+            alert('Some Error Occurs')
+        })
+    }
+
+    LoadingMessage = () => {
+        return (
+            <Spinner />
+        );
+    }
+        
     render() {
+        let { errors, loading } = this.state
+        if (loading) return this.LoadingMessage();
         return (
             <div>
-
                 <div className="backgroundColorMain">
                     <Container fluid className="containeNoMargin">
                         <div className="backgroundGradient">
@@ -66,8 +96,4 @@ class Dashboard extends React.Component {
     }
 }
 
-export default connect(
-    state => ({
-        dispatch: state.dispatch
-    })
-)(Dashboard)
+export default connect(state => state)(Dashboard)

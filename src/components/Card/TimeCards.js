@@ -1,28 +1,15 @@
 import React from 'react'
 import { Row, Card, Col } from 'react-bootstrap';
+import { connect } from 'react-redux'
 import './index.css'
 
 class TimeCards extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            cardsArray: [
-                { image: './card.ico', number: 'Card 1', title: '7 Seconds' },
-                { image: './card.ico', number: 'Card 2', title: '27 Seconds' },
-                { image: './card.ico', number: 'Card 3', title: '17 Seconds' },
-                { image: './card.ico', number: 'Card 4', title: '47 Seconds' },
-                { image: './card.ico', number: 'Card 5', title: '7 Seconds' },
-
-            ]
-        }
-    }
-
     render() {
-        let { cardsArray } = this.state
+        let dataArray = this.props && this.props.reducer && this.props.reducer.data && this.props.reducer.data.timeCardsArray || []
         return (
             <Row className="cardsPositioning">
                 {
-                    cardsArray.map((val, index) => {
+                    dataArray.map((val, index) => {
                         return (
                             <Col xs={12} sm={12} md={6} xl={3} key={index} className="cardWidth">
                                 <Card>
@@ -43,4 +30,4 @@ class TimeCards extends React.Component {
     }
 }
 
-export default TimeCards
+export default connect(state => state)(TimeCards)

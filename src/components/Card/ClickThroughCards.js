@@ -1,27 +1,15 @@
 import React from 'react'
 import { Row, Card, Col } from 'react-bootstrap';
+import { connect } from 'react-redux'
 import './index.css'
 
 class ClickThroughCards extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            cardsArray: [
-                { number: '4,692 Clicks', title: 'Sharp Cheddar w/ Bacon' },
-                { number: '3,786 Clicks', title: 'Creamy Alfredo w/ Bacon' },
-                { number: '2,951 Clicks', title: 'Nacho Mac' },
-                { number: '2,849 Clicks', title: 'Boxed Dinners' },
-
-            ]
-        }
-    }
-
     render() {
-        let { cardsArray } = this.state
+        let dataArray = this.props && this.props.reducer && this.props.reducer.data && this.props.reducer.data.clickCardsArray || []
         return (
             <Row className="cardsPositioning">
                 {
-                    cardsArray.map((val, index) => {
+                    dataArray.map((val, index) => {
                         return (
                             <Col xs={12} sm={12} md={6} xl={3} key={index} className="cardWidth">
                                 <Card>
@@ -39,4 +27,4 @@ class ClickThroughCards extends React.Component {
     }
 }
 
-export default ClickThroughCards
+export default connect(state => state)(ClickThroughCards)

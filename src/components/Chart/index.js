@@ -4,21 +4,6 @@ import { Row, Col } from 'react-bootstrap'
 import { ResponsiveContainer, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, LabelList, Legend } from 'recharts';
 import './index.css'
 
-const data = [
-    { name: 'Aug 11', uv: 4000, pv: 2400, amt: 2400 },
-    { name: 'Aug 12', uv: 3000, pv: 1398, amt: 2210 },
-    { name: 'Aug 13', uv: 2000, pv: 800, amt: 2290 },
-    { name: 'Aug 14', uv: 2780, pv: 3908, amt: 2000 },
-    { name: 'Aug 15', uv: 1280, pv: 4800, amt: 2181 },
-    { name: 'Aug 16', uv: 2390, pv: 3800, amt: 2500 },
-    { name: 'Aug 17', uv: 3490, pv: 4300, amt: 2100 },
-    { name: 'Aug 18', uv: 3490, pv: 2400, amt: 3908 },
-    { name: 'Aug 19', uv: 3490, pv: 4300, amt: 4300 },
-    { name: 'Aug 20', uv: 3490, pv: 3800, amt: 3800 },
-    { name: 'Aug 21', uv: 3490, pv: 4300, amt: 2100 },
-
-];
-
 class ChartMain extends React.Component {
     constructor(props) {
         super(props);
@@ -44,7 +29,6 @@ class ChartMain extends React.Component {
     }
 
     customTooltipOnYourLine(e) {
-        console.log(e.payload)
         if (e.active && e.payload != null && e.payload[0] != null) {
             return (
                 <div className="tooTipMain">
@@ -64,11 +48,16 @@ class ChartMain extends React.Component {
 
     render() {
         let { barSize } = this.state
+        let dataArray = this.props && this.props.reducer && this.props.reducer.data && this.props.reducer.data.graphArray || []
         return (
             <div className="mainChart">
                 <div className="container-chart">
                     <ResponsiveContainer width="100%" height="100%">
-                        <BarChart width={1500} height={170} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                        <BarChart 
+                                    width={1500} height={170} 
+                                    data={dataArray}
+                                    margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+
                             <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" />
                             <YAxis />
@@ -87,8 +76,4 @@ class ChartMain extends React.Component {
     }
 }
 
-export default connect(
-    state => ({
-        dispatch: state.dispatch
-    })
-)(ChartMain)
+export default connect(state => state)(ChartMain)

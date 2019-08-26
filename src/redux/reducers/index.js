@@ -1,5 +1,5 @@
-import dummyReducer from './dummy'
+import reducer from './reducer'
 
 export default {
-    dummyReducer,
+    reducer,
 }

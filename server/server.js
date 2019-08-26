@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser')
-var app=express();
+var app = express();
 var server = require('http').Server(app)
 var path = require('path')
 var mongoose = require('mongoose');
@@ -11,21 +11,24 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 var config = require('./config');
-
 app.set('superSecret', config.secret);
-
 app.use(express.static(path.join(__dirname, 'public')))
-  
 app.use(function (req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next();
 });
-
 var Login = require('./Schema/login');
 
-app.get('/test', (req, res, next)=>{
-        res.send('data')
+var DataArray = require('./Schema/DataArray')
+
+const graphArray = require('./constants/graphArray')
+const cardChartArray = require('./constants/cardChartArray')
+const clickCardsArray = require('./constants/clickCardsArray')
+const timeCardsArray = require('./constants/timeCardsArray')
+
+app.get('/test', (req, res, next) => {
+	res.send('data')
 })
 
 app.post('/login',
@@ -45,8 +48,47 @@ app.post('/login',
 		});
 	});
 
+app.post('/saveData',
+	function (req, res) {
+		var dataArray = new DataArray();
+		dataArray.graphArray = graphArray;
+		dataArray.cardChartArray = cardChartArray;
+		dataArray.timeCardsArray = timeCardsArray
+		dataArray.clickCardsArray = clickCardsArray
 
-	// chartsData
+		dataArray.save(function (err, data) {
+			if (err)
+				return res.status(400).send(err);
+			res.json({
+				status: 200,
+				data: data,
+				message: 'data saved'
+			});
+		});
+	});
+
+
+app.get('/getData',
+	async function (req, res) {
+		
+		const dataArray = await DataArray.find({})
+
+		console.log(dataArray,"dataArray")
+
+		res.json({
+			status: 200,
+			data: dataArray[0] || []
+		  })
+		
+	});
+
+
+server.listen(port, () => {
+	console.log(`app running on port ${port}`)
+});
+
+
+
 
 
     // app.post('/register',
@@ -73,8 +115,3 @@ app.post('/login',
 // 			});
 // 		});
 // 	});
-
-  
-server.listen(port,() => {
-    console.log(`app running on port ${port}`)
-});

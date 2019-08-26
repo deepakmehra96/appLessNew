@@ -1,0 +1,97 @@
+.spinnerOut{
+    width: 100hw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+  }
+  
+  .spinner {
+    position: absolute;
+    width: 78px;
+    height: 78px;
+  }
+  
+  .spinner:before {
+    content: '';
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    top: 50%;
+    margin-top: -23px;
+    left: 50%;
+    margin-left: -23px;
+    border-width: 2px 1px;
+    border-style: solid;
+    border-color: #4bbbce rgba(75, 187, 206, 0.3);
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    box-sizing: border-box;
+    -o-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    animation: spin 1.45s infinite;
+    -o-animation: spin 1.45s infinite;
+    -ms-animation: spin 1.45s infinite;
+    -webkit-animation: spin 1.45s infinite;
+  }
+  
+  @-moz-keyframes spin {
+    from { -moz-transform: rotate(0deg); }
+    to { -moz-transform: rotate(360deg); }
+  }
+  
+  @-webkit-keyframes spin {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+  }
+  
+  .spinner:after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      top: 50%;
+      margin-top: -6px;
+      left: 50%;
+      margin-left: -6px;
+      background-color: #4bbbce;
+      border-radius: 50%;
+      -o-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      box-sizing: border-box;
+      -o-box-sizing: border-box;
+      -ms-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      animation: pulse 1.9s infinite, borderPulse 1.9s infinite;
+      -o-animation: pulse 1.9s infinite, borderPulse 1.9s infinite;
+      -ms-animation: pulse 1.9s infinite, borderPulse 1.9s infinite;
+      -webkit-animation: pulse 1.9s infinite, borderPulse 1.9s infinite;
+      -moz-animation: pulse 1.9s infinite, borderPulse 1.9s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      -moz-box-shadow: 0 0 0 0 #4bbbce;
+      box-shadow: 0 0 0 0 #4bbbce;
+    }
+    70% {
+      opacity: 0.3;
+    }
+    100% {
+      -moz-box-shadow: 0 0 0 0 #4bbbce;
+      box-shadow: 0 0 0 0 #4bbbce;
+    }
+  }

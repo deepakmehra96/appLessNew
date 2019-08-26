@@ -66,7 +66,6 @@ class PieChartComp extends React.Component {
   };
 
   render() {
-    console.log(this.props.chartData.data, "sdjkfbdjksfb")
     return (
       <div className="graphCon">
         <div className="question">

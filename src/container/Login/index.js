@@ -1,10 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {  Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import microValidator from 'micro-validator'
 import is from 'is_js'
 import './index.css'
-import { loginApi } from '../../redux/actions/index';
+import { loginApi, getData } from '../../redux/actions/index';
+import Spinner from '../../components/Spinner';
 
 let validationSchema = {
     username: {
@@ -29,6 +30,7 @@ class Login extends React.Component {
                 password: ''
             },
             errors: {},
+            loading:false
         };
     }
 
@@ -54,15 +56,27 @@ class Login extends React.Component {
         this.props.dispatch(loginApi(data)).then(res => {
             if (res.status == 200) {
                 this.props.history.push('/dashboard');
+                this.setState({ loading: false })
             } else {
+                this.setState({ loading: false })
                 alert('Invalid Credential')
             }
         }).catch((err) => {
+            this.setState({ loading: false })
             alert('Invalid Credential')
         })
     }
+
+    LoadingMessage = () => {
+        return (
+            <Spinner />
+        );
+    }
+       
+
     render() {
-        let { errors } = this.state
+        let { errors, loading } = this.state
+        if (loading) return this.LoadingMessage();
         return (
             <div className="backGroundImage">
                 <div className="wrapper-page">
